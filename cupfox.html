@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="茶杯狐,电影搜索">
+    <link rel="icon" href="https://search.chongbuluo.com/favicon.ico">
+    <title>茶杯狐电影搜索</title>
+    <style type="text/css">
+   body{text-align:center;height:100%;background-color:#fff;}
+.logo{width:260px;margin:16% auto 30px}
+input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#db542e;border-radius:2px;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;letter-spacing:8px}
+input[type=text]{float:left;width:508px;height:32px;padding:3px 10px;margin-bottom:5px;border:1px solid #cdcdcd;font-size:16px;outline: 0;}
+#weibo-search{display:block;width:618px;margin:0 auto}
+#ad{float:left;width:300px;height:250px;display:inline-block;margin-right:13px;background-image:url(https://wx2.sinaimg.cn/large/b1601727ly1flzfeim6cij20go0dwdic.jpg);background-size: contain;}
+#wwads-cn-113{margin: 30px auto;} 
+    </style>
+
+</head>
+
+<body>
+    <img class="logo" title="茶杯狐电影搜索" src="./cupfox_files/WyjJOg.png">
+    <section class="search" id="weibo-search">
+        <div class="middle" id="tijiao">
+            <input name="" type="text" id="weibo" value="" autocomplete="off">
+            <input type="submit" value="搜索" onclick="weibo()"> 
+            <script type="text/javascript">
+            function weibo() {
+                var s = document.getElementById('weibo').value;
+                window.open("https://www.cupfox.app/search?key=" + s);
+            }
+            </script>
+		</div>
+         </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            weibo();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+
+
+
+
+</body></html>
