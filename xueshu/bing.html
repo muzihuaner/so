@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="学术搜索;文献搜索;论文搜索;学术论文;学术文献;文献;论文;论文检索" />
+    <meta name="description" content="微软学术，由微软必应团队联合研究院打造的免费学术搜索产品，旨在为广大研究人员提供海量的学术资源，并提供智能的语义搜索服务，目前已涵盖多学科学术论文、国际会议、权威期刊、知名学者等方面。">
+    <link rel="icon" href="/favicon.ico">
+    <title>必应学术搜索</title>
+    <style type="text/css">
+*{outline:none}body{background-color:#fff;height:100%;overflow-x:hidden}
+.logo{display:block;width:232px;height:50px;margin:9% auto 30px}
+input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#008272;border-radius:2px;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;letter-spacing:8px}
+input[type=text]{float:left;width:508px;height:32px;padding:3px 10px;margin-bottom:18px;border:1px solid #d9d9d9;font-size:16px;color:#7d7d7d;}
+#weibo-search{display:block;width:618px;margin:0 auto}
+#ad{float:left;width:300px;height:250px;display:inline-block;margin-right:13px;background-size: contain;}a:link,a:visited{color:#1350b5;text-decoration:none}a:hover{text-decoration:underline}input{outline:0}
+blockquote,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,textarea,ul{padding:0;margin:0}ol,ul{list-style:none}li{list-style-type:none}img{vertical-align:top;border:0}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:400}address,cite,code,em,i,th{font-weight:400;font-style:normal}.clearfix:after{display:block;overflow:hidden;clear:both;height:0;visibility:hidden;content:""}a:link,a:visited{color:#1350b5;text-decoration:none}a:hover{text-decoration:underline}input{outline:0}.swiper_wrap{position:relative;width:616px;height:38px;margin:18px auto;overflow:hidden;border:solid 1px #ececec;text-align:center}.swiper_wrap ul{position:relative;top:0;left:0;width:616px;float:right;color:#444;font-size:14px}.swiper_wrap ul li{line-height:38px}.lt{position:absolute;left:10px;top:10px;font-family:"宋体";font-weight:700;color:#AAA}.gt{position:absolute;right:10px;top:10px;font-family:"宋体";font-weight:700;color:#AAA}.swiper_wrap .font_inner a{color:#444;font-size:14px !important;}.swiper_wrap a:hover{color:#1350b5}em{margin-right:15px}.infobox{width: 280px;height: 228px;font-size: 13px;float: right;padding: 10px; border: 1px solid #ececec;overflow:hidden;background-color: #f3f3f3}.infobox_title{color: #00c; margin-bottom: 10px;}.b_List{margin-top:-32px}.b_List li {border-top: 1px solid #eaeaea;margin-top: 15px;padding: 15px 0 0;}.infobox_desc .rms_img {
+    margin-right: 10px;
+    vertical-align: -2px;
+}
+    </style>
+</head>
+
+<body>
+    <img class="logo" title="微软学术搜索" src="images/bing_scholar_logo.png">
+    <section class="search" id="weibo-search">
+        <div class="middle" id="tijiao">
+            <!--<input  name="" type="text" id="weibo" value="" placeholder="海量电影、图书、软件资源任你搜！">-->
+			<input name="textfield" type="text" id="weibo" />
+            <input  type="submit" value="搜索" onclick="weibo()"> </input>
+		</div>
+		<div class="swiper_wrap">
+			<ul class="font_inner">
+			<li><a href="https://www.zhihu.com/question/21108019" target="_blank">世界上有哪些惊人的毕业设计、毕业作品、毕业论文？</a></li>
+			<li><a href="#" target="_blank">[免费下载] Sci-Hub — 如何简洁而优雅地下载文献</a></li>
+			<li><a href="#" target="_blank">有了“术语在线”，老师再也不用担心我的外文翻译了</a></li>
+			</ul>
+			<a href="javascript:void(0)" class="lt">&lt;</a>
+			<a href="javascript:void(0)" class="gt">&gt;</a>
+	    </div>
+			<div id="ad">
+            <script type="text/javascript">
+            function weibo() {
+                var s = document.getElementById('weibo').value;
+                window.open("http://cn.bing.com/academic/search?q="+s,"_self");
+            }
+            </script>
+            
+			</div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            weibo();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+<script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+	$(".font_inner li:eq(0)").clone(true).appendTo($(".font_inner"));
+	var liHeight = $(".swiper_wrap").height();
+	var totalHeight = ($(".font_inner li").length *  $(".font_inner li").eq(0).height()) -liHeight;
+	$(".font_inner").height(totalHeight);
+	var index = 0;
+	var autoTimer = 0;
+	var clickEndFlag = true; 
+
+	function tab(){
+		$(".font_inner").stop().animate({
+			top: -index * liHeight
+		},400,function(){
+			clickEndFlag = true;
+			if(index == $(".font_inner li").length -1) {
+				$(".font_inner").css({top:0});
+				index = 0;
+			}
+		})
+	}
+
+	function next() {
+		index++;
+		if(index > $(".font_inner li").length - 1) {
+			index = 0;
+		}
+		tab();
+	}
+	function prev() {
+		index--;
+		if(index < 0) {
+			index = $(".font_inner li").size() - 2;
+			$(".font_inner").css("top",- ($(".font_inner li").size() -1) * liHeight);
+		}
+		tab();
+	}
+	$(".swiper_wrap .gt").on("click",function() {
+		if(clickEndFlag) {
+			next();
+			clickEndFlag = false;
+		}
+	});
+	$(".swiper_wrap .lt").on("click",function() {
+		if(clickEndFlag) {
+			prev();
+			clickEndFlag = false;
+		}
+	});
+	autoTimer = setInterval(next,3000);
+	$(".font_inner a").hover(function(){
+		clearInterval(autoTimer);
+	},function() {
+		autoTimer = setInterval(next,3000);
+	})
+	$(".swiper_wrap .lt,.swiper_wrap .gt").hover(function(){
+		clearInterval(autoTimer);
+	},function(){
+		autoTimer = setInterval(next,3000);
+	})
+	})
+	</script>
+</body>
+</html>

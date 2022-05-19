@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GitHub 搜索,GitHub search,代码检索">
+    <link rel="icon" href="/favicon.ico">
+    <title>GitHub 搜索</title>
+    <style type="text/css">
+   body{text-align:center;height:100%;background-color:#fff;}
+.logo{width:275px;margin:9% auto 30px}
+input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#25292f;border-radius:0px;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;letter-spacing:1px}
+input[type=text]{float:left;width:500px;height:32px;color:#fff;padding:3px 10px;margin-bottom:30px;border:1px solid #000;border-right:0;font-size:16px;outline: 0;background-color:#3f4448;}
+#weibo-search{display:block;width:618px;margin:0 auto}
+#ad{float:left;width:300px;height:250px;display:inline-block;margin-right:13px;background-size: contain;}
+    </style>
+</head>
+
+<body>
+    <img class="logo" title="GitHub 搜索" src="images/GitHub_logo.png">
+    <section class="search" id="weibo-search">
+        <div class="middle" id="tijiao">
+            <input  name="" type="text" id="weibo" value="">
+            <input  type="submit" value="Search" onclick="weibo()"> </input>
+            <script type="text/javascript">
+            function weibo() {
+                var s = document.getElementById('weibo').value;
+                window.open("https://github.com/search?q=" + s);
+            }
+            </script>
+        </div>
+            <div id="ad">
+
+            </div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            weibo();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+
+</body>
+</html>

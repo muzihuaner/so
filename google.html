@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <meta name="description" content="Google" /> 
+  <meta name="author" content="lansedaohang.com" /> 
+  <link rel="icon" href="/favicon.ico" /> 
+  <title>Google Search</title> 
+  <style type="text/css">body{text-align:center;font-size:16px;font-family:arial,sans-serif}#logo{width:484px;height:208px;margin:3% auto 0px}a{text-decoration:none;color:#4285f4}#add{width:300px;height:250px;display:inline-block;background-size: contain;}blockquote,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,textarea,ul{padding:0;margin:0}ol,ul{list-style:none}li{list-style-type:none}img{vertical-align:top;border:0}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:400}address,cite,code,em,i,th{font-weight:400;font-style:normal}.clearfix:after{display:block;overflow:hidden;clear:both;height:0;visibility:hidden;content:""}a:link,a:visited{color:#4285f4;text-decoration:none}a:hover{text-decoration:underline}input{outline:0}.swiper_wrap{position:relative;width:605px;height:38px;overflow:hidden;border:solid 1px #efefef;}ul{position:relative;top:0;left:0;width:605px;float:right;color:#444;font-size:14px}ul li{line-height:38px}.lt{position:absolute;left:10px;top:10px;font-family:"宋体";font-weight:700;color:#AAA}.gt{position:absolute;right:10px;top:10px;font-family:"宋体";font-weight:700;color:#AAA}.swiper_wrap .font_inner a{color:#444;font-size:14px !important;}.swiper_wrap a:hover{color:#4285f4}em{margin-right:15px}#google-search {display: block;width: 605px;margin: 20px auto;
+}input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#39b29d;border-radius:0;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;background: url(images/66px_Google_G_Logo.png) center no-repeat;background-size: 20px 20px;background-color: #efefef;}
+input[type=text]{float:left;width:543px;height:32px;padding:3px 10px;margin-bottom:30px;border:1px solid #efefef;font-size:16px;outline: 0;}</style>
+ </head> 
+ <body> 
+  <iframe id="logo" src="pacman/pacman.html" frameborder="0" height="208px" width="484px" scrolling="no"></iframe>
+  <section class="search" id="google-search">
+  <div class="middle" id="push">
+    <input name="" type="text" id="google" value="">
+    <input type="submit" value="" onclick="google()"></input>
+    <script type="text/javascript">
+            function google() {
+                var s = document.getElementById('google').value;
+                window.open("https://www.google.com/search?source=hp&ei=KNEnWqOFIIGu0gS2zZzYDQ&q=" + s, "_blank");
+            }
+            </script>
+  </div>
+  <div class="swiper_wrap">
+		<ul class="font_inner">
+			<li><a href="https://www.zhihu.com/question/21108019" target="_blank">世界上有哪些惊人的毕业设计、毕业作品、毕业论文？</a></li>
+			<li><a href="#" target="_blank">[免费下载] Sci-Hub — 如何简洁而优雅地下载文献</a></li>
+			<li><a href="#" target="_blank">有了“术语在线”，老师再也不用担心我的外文翻译了</a></li>
+		</ul>
+		<a href="javascript:void(0)" class="lt">&lt;</a>
+		<a href="javascript:void(0)" class="gt">&gt;</a>
+	</div>
+</section>
+  <section style="width:800px;margin:30px auto 0"> 
+   <div id="add">
+
+   </div> 
+  </section>  
+  <script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+	
+	$(".font_inner li:eq(0)").clone(true).appendTo($(".font_inner"));
+	var liHeight = $(".swiper_wrap").height();
+	var totalHeight = ($(".font_inner li").length *  $(".font_inner li").eq(0).height()) -liHeight;
+	$(".font_inner").height(totalHeight);
+	var index = 0;
+	var autoTimer = 0;
+	var clickEndFlag = true; 
+
+	function tab(){
+		$(".font_inner").stop().animate({
+			top: -index * liHeight
+		},400,function(){
+			clickEndFlag = true;
+			if(index == $(".font_inner li").length -1) {
+				$(".font_inner").css({top:0});
+				index = 0;
+			}
+		})
+	}
+
+	function next() {
+		index++;
+		if(index > $(".font_inner li").length - 1) {
+			index = 0;
+		}
+		tab();
+	}
+	function prev() {
+		index--;
+		if(index < 0) {
+			index = $(".font_inner li").size() - 2;
+			$(".font_inner").css("top",- ($(".font_inner li").size() -1) * liHeight);
+		}
+		tab();
+	}
+	$(".swiper_wrap .gt").on("click",function() {
+		if(clickEndFlag) {
+			next();
+			clickEndFlag = false;
+		}
+	});
+	$(".swiper_wrap .lt").on("click",function() {
+		if(clickEndFlag) {
+			prev();
+			clickEndFlag = false;
+		}
+	});
+	autoTimer = setInterval(next,3000);
+	$(".font_inner a").hover(function(){
+		clearInterval(autoTimer);
+	},function() {
+		autoTimer = setInterval(next,3000);
+	})
+
+	$(".swiper_wrap .lt,.swiper_wrap .gt").hover(function(){
+		clearInterval(autoTimer);
+	},function(){
+		autoTimer = setInterval(next,3000);
+	})
+	})
+	</script>
+	<script type="text/javascript">   
+    document.getElementById('push').onkeydown=keyDownSearch; 
+    function keyDownSearch(e) {  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            google();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+ </body>
+</html>

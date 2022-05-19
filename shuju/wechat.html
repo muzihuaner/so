@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="搜狗微信指数">
+    <link rel="icon" href="/favicon.ico">
+    <title>微信指数</title>
+    <style type="text/css">
+   body{text-align:center;background:url(http://main.inte.sogoucdn.com/bigdata/img/common/home_bg.png) left top #f9f9f9;height:100%;overflow-x:hidden}
+.logo{width:266px;height:66px;margin:9% auto 30px}
+input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#FF8B39;border-radius:2px;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;letter-spacing:8px}
+input[type=text]{float:left;width:500px;height:32px;padding:3px 10px;margin-bottom:30px;border:1px solid #d9d9d9;font-size:16px}
+#weibo-search{display:block;width:618px;margin:0 auto}
+#ad{float:left;width:300px;height:250px;display:inline-block;margin-right:13px;}
+    </style>
+</head>
+
+<body>
+    <img class="logo" title="搜狗微信指数搜索" src="http://main.inte.sogoucdn.com/bigdata/img/common/h_logo.png">
+    <section class="search" id="weibo-search">
+        <div class="middle" id="tijiao">
+            <input  name="" type="text" id="weibo" value="" placeholder="查询关键词在微信中的热度。到底火不火？一搜便知！">
+            <input  type="submit" value="搜索" onclick="weibo()"> </input>
+		</div>
+			<div id="ad">
+
+			</div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            weibo();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+
+</body>
+
+</html>

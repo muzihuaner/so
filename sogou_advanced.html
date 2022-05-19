@@ -1,0 +1,312 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<title>搜狗高级搜索</title>
+<script type="text/javascript">
+function getRadioValue(ele){
+  	var filetypes=document.getElementsByName(ele);
+	var filetype = null;
+	for(var i=0;filetypes && i<filetypes.length; i++){
+		if(filetypes[i].checked){
+			filetype = filetypes[i].value;
+		}
+	}
+	return filetype
+	
+}
+function readQuery(){
+
+	var query=document.searchForm.q.value,exclude="";
+	//var exclude=document.searchForm.exclude.value;
+	var sitequery=document.searchForm.sitequery.value;
+
+	 var include = document.getElementById("include");
+	 if (include.checked) {
+	 	var querys = query.split(" ");
+	 	query = "";
+	 	for(var i=0; i<querys.length; i++){
+	 		var tmp = querys[i];
+	 		if(tmp == "")
+	 			continue;
+	 		query += "\""+tmp+"\""+" ";
+		}
+	}
+	
+	
+    var sub="-";
+    var inc="\"";
+    var space=" ";
+ 
+    
+    
+	if(exclude!=null&&exclude.length>0){
+		query=query+space+sub+exclude;
+	}
+	if(sitequery!=null&&sitequery.length>0){
+		if((query==null||query.length==0)){
+			alert("指定网站内搜索的查询请输入'关键词'");
+			return false;
+		}
+			query=query+space+"site:"+sitequery;
+	}
+	
+	var filetype = getRadioValue('filetype');
+	if(filetype!=null&&filetype.length>0){
+		if((query==null||query.length==0)){
+			alert("指定文件格式的查询请输入'关键词'");
+			return false;
+		}
+		query=query+space+"filetype:"+filetype; 
+	}
+	
+
+	var checkValue = getRadioValue("located");
+	if (checkValue==0){
+                document.searchForm.fieldtitle.value='';
+                document.searchForm.fieldcontent.value='';
+                document.searchForm.fieldstripurl.value=''; 
+	}
+	else if (checkValue==1){
+		query = "intitle:"+query;
+                document.searchForm.fieldtitle.value="on";
+                document.searchForm.fieldcontent.value='';
+                document.searchForm.fieldstripurl.value='';		
+	}
+	else if(checkValue==2){
+//		query = "intext:"+query;
+                document.searchForm.fieldcontent.value="on";
+                document.searchForm.fieldtitle.value='';
+                document.searchForm.fieldstripurl.value='';  
+	}
+	else if(checkValue==3){
+		query = "inurl:"+query;
+                document.searchForm.fieldstripurl.value="on";
+                document.searchForm.fieldcontent.value='';
+                document.searchForm.fieldtitle.value='';
+	}
+
+	document.searchForm.query.value=query;
+	
+	document.searchForm.bstype.value='';
+
+	return true;
+	
+}
+</script>
+<style>body, ul, h2, p, td, form {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #fff;
+	color: #000;
+	text-align: center;
+	line-height: normal;
+}
+body, input, select, textarea, table {
+	font-family: Simsun, serif;
+	font-size: 14px;
+}
+img {
+	border: none;
+}
+a {
+	color: #00c;
+}
+.logo {
+	margin: 65px auto 18px;
+}
+#searchForm {
+	background-color:#f7f7f7;
+	width: 728px;
+	height: 275px;
+	margin: 0 auto 20px;
+	text-align: left;
+	border-radius: 2px;
+}
+.advanced {
+	padding-left: 22px;
+	height: 80px;
+}
+#n {
+	font: 14px arial;
+	padding-top: 16px;
+	margin-bottom: 5px;
+	position: relative;
+	zoom: 1;
+}
+#n a, #n strong {
+	margin-right: 1.14em;
+	zoom: 1;
+}
+#vm {
+	background: url(../images/tri.gif) no-repeat 32px 6px;
+	padding-right: 12px;
+}
+#vl {
+	display: none;
+	border: 1px solid #7F7F7F;
+	position: absolute;
+	left: 378px;
+	top: 16px;
+	background: #fff;
+	width: 70px;
+	font-size: 12px;
+}
+#n #vl a {
+	display: block;
+	float: none;
+	height: 24px;
+	line-height: 24px;
+	margin: 0;
+	padding: 0 8px;
+	color: #000;
+	text-decoration: none;
+}
+#vl a:hover {
+	background: #E6E6E6;
+}
+.ap{
+	border-top: 1px solid #C4C4C4;
+}
+.q {
+	height: 22px;
+	line-height: 22px;
+	width: 535px;
+	font: 16px verdana;
+}
+.stb {
+	width: 5.6em;
+	height: 2em;
+	font-size: 14px;
+}
+#ts {
+	margin: 29px 0 8px;
+	font-size: 14px;
+}
+#tif {
+	visibility: hidden;
+}
+#ft {
+	width:728px;height:90px;margin: 0 auto;background:url(http://wx1.sinaimg.cn/large/b1601727gy1fkefakc6hlj20k802iq3p.jpg);
+}
+.g {
+	color: #666;
+	text-decoration: none;
+}
+.ba {
+	background: url(/images/i.gif) no-repeat left -85px;
+	padding-right: 12px;
+	height: 14px;
+	display: inline-block;
+	text-decoration: none;
+}
+.opt {
+	padding: 5px 0 0 22px;
+}
+.opt th {
+	white-space: nowrap;
+}
+.opt th, .opt td {
+	text-align: left;
+	padding-right: 5px;
+	height: 25px;
+}
+.opt input {
+	vertical-align: middle;
+}
+input[type="submit"] {
+    position: relative;
+    top: -220px;
+    left: 410px;
+    background-color: #FD6853;
+    height: 28px;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 2px;
+    padding: 0 10px;
+    border: 1px solid #a22817;
+}
+</style>
+</head>
+<body onload=m_s()>
+<div class="logo"><img src="http://www.sogou.com/images/logo2014/gaojisousuo.png" alt="搜狗高级搜索" width="202" height="53"></div>
+<form action="http://www.sogou.com/web" target="_blank" name="searchForm" id="searchForm" onsubmit="return readQuery();">
+  <div class="advanced">
+    <div id="n"><strong>网&nbsp;页</strong><a href="#zhihu" target="_blank">知乎</a><a href="#wechat" target="_blank">微信</a><a href="/so/xueshu" target="_blank">学术搜索</a><a href="javascript:void(0)" onclick="return moreddshow(event);" id="vm">更&nbsp;多</a>
+      <div id="vl"><a href="/so/shuju" target="_blank">数据搜索</a><a href="/so/sheji" target="_blank">图片搜索</a><a href="/so/cili" target="_blank">资源搜索</a></div>
+    </div>
+    <input name="q" class="q" onfocus="this.select()" size="42" maxlength="100">
+    <input name="query" type="hidden" value="">
+<input name="fieldtitle" type="hidden" value=""/>
+<input name="fieldcontent" type="hidden" value=""/>
+<input name="fieldstripurl" type="hidden" value=""/>
+<input name="bstype" type="hidden" value=""/>
+<input name="ie" type="hidden" value="utf8"/>
+  </div>
+  <div class="opt">
+    <label>
+    <input type="checkbox" name="include" id="include" value="checkbox">
+    不拆分关键词</label>
+    <table>
+    	<!--tr>
+        <th>去除</th>
+        <td><input name="exclude" type="text" size="40"></td>
+      </tr-->
+      <tr>
+        <th>在指定站内搜索</th>
+        <td><input name="sitequery" type="text" size="40"></td>
+      </tr>
+      <tr>
+        <th>搜索词位于</th>
+        <td><label><input name="located" type="radio" value="0" checked>网页的任何地方</label>
+          <label><input type="radio" name="located" value="1">仅在标题中</label>
+          <label><input type="radio" name="located" value="2">仅在正文中</label>
+          <label><input type="radio" name="located" value="3">仅在网址中</label></td>
+      </tr>
+      <tr>
+        <th>搜索结果排序方式</th>
+        <td><label><input name="tro" type="radio" value="off" checked>按相关性排序&nbsp;&nbsp;</label>
+          <label><input type="radio" name="tro" value="on">按时间排序</label></td>
+      </tr>
+      <tr>
+        <th>指定文件格式</th>
+        <td><label><input type="radio" name="filetype" value="doc">word(.doc)</label>&nbsp;
+          <label><input type="radio" name="filetype" value="pdf">PDF(.pdf)</label>
+          <label><input type="radio" name="filetype" value="ppt">PPT(.ppt)</label><br/>
+          <label><input type="radio" name="filetype" value="xls">excel(.xls)</label>
+          <label><input type="radio" name="filetype" value="rtf">RTF(.rtf)</label>
+          <label><input type="radio" name="filetype" value="all">全部文档</label>
+          <label><input type="radio" name="filetype" checked value="">全部网页</label>
+        </td>
+      </tr>
+      <tr>
+        <th>每页显示</th>
+        <td><select name="num">
+            <option value="10" selected="selected">10条结果</option>
+            <option value="20" >20条结果</option>
+            <option value="30" >30条结果</option>
+            <option value="50" >50条结果</option>
+            <option value="100" >100条结果</option>
+
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="搜狗搜索"></td>
+      </tr>
+    </table>
+  </div>
+</form>
+
+
+<script type="text/javascript">
+function m_s(){var w=document.searchForm.q;w.focus();if(new RegExp("kw=([^&]+)").test(location.search)){if(w.value.length==0)w.value=decodeURIComponent(RegExp.$1)}}function s(o){var w=document.searchForm.q;if(w.value.length>0){var h=o.href;var q=encodeURIComponent(w.value);if(h.indexOf("kw=")>0){o.href=h.replace(new RegExp("kw=[^&$]*"),"kw="+q)}else{o.href+="?&kw="+q}}};function moreddshow(C){var B=document.getElementById("vl");var A=document.getElementById("vm");if(!B||!A){return false}if(B.style.display!="block"){B.style.display="block";A.className="on"}else{B.style.display="none";A.className=""}return false}document.onclick=function(F){F=F?F:(window.event?window.event:null);var E=(F.target)?F.target:F.srcElement;var A=E.id;var D=document.searchForm.query.value;if(D!=""){while(E.tagName&&E.tagName.toUpperCase()!="A"&&E!=E.parentNode){E=E.parentNode}if(E.tagName&&(E.tagName.toUpperCase()=="A")&&E.id.indexOf("sogou")==0){E.href+="?kw="+escape(D)}}var C=document.getElementById("vl");var B=document.getElementById("vm");if(A!="vm"&&C&&B&&A!="vsearchmorear"){C.style.display="none";B.className=""}};</script>
+</body>
+</html>
+<!--zly-->

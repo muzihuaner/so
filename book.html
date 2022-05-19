@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="微博搜索,微博用户,微博事件">
+    <link rel="icon" href="/favicon.ico">
+    <title>英文电子书搜索</title>
+    <style type="text/css">
+   body{text-align:center;height:100%;background-color:#fff;}#fontlogo {margin-top: 5%;}
+span.logo {font-size: 60px;font-weight: 600;color: #29b5b8;}span.part { color: #8BC34A;}
+input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#29b5b8;border-radius:2px;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;letter-spacing:8px}
+input[type=text]{float:left;width:500px;height:32px;padding:3px 10px;margin-bottom:30px;border:1px solid #cdcdcd;font-size:16px;outline: 0;}
+#weibo-search{display:block;width:618px;margin:0 auto}
+#ad{float:left;width:300px;height:250px;display:inline-block;margin-right:13px;}i {display: block;margin-bottom: 20px;color: #9E9E9E;}
+    </style>
+</head>
+
+<body>
+    <div id="fontlogo"><span class="logo">Book</span><span class="logo part ">SC</span></div>
+    <i>The world's largest scientific articles store. 50,000,000+ articles for free.</i>
+    <section class="search" id="weibo-search">
+        <div class="middle" id="tijiao">
+            <input  name="" type="text" id="weibo" value="">
+            <input  type="submit" value="搜索" onclick="weibo()"> </input>
+            <script type="text/javascript">
+            function weibo() {
+                var s = document.getElementById('weibo').value;
+                window.open("http://booksc.org/s/?q=" + s,"_self");
+            }
+            </script>
+		</div>
+			<div id="ad">
+
+			</div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            weibo();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+
+</body>
+
+</html>

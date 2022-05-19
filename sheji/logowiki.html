@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="搜索知名品牌的历史logo存档">
+    <link rel="icon" href="/favicon.ico">
+    <title>Logo wiki 搜索</title>
+    <style type="text/css">
+*{outline:none}body{text-align:center;background-color:#fcfefc;height:100%;overflow-x:hidden}
+.logo{width:100px;height:100px;margin:9% auto 0;}
+input[type=submit],input[type=button]{display:inline-block;color:#fff;background-color:#3476F9;border-radius:2px;height:40px;line-height:27px;font-family:Arial,Microsoft YaHei;font-size:16px;padding:0 20px;border:none;cursor:pointer;letter-spacing:8px}
+input[type=text]{float:left;width:508px;height:32px;padding:3px 10px;margin-bottom:30px;border:1px solid #d9d9d9;font-size:16px;color:#7d7d7d;}
+#weibo-search{display:block;width:618px;margin:0 auto}
+#add{float:left;width:300px;height:250px;display:inline-block;margin-right:13px;background-size: contain;}h1 {font-size: 18px;color: #7d7d7d;padding-bottom: 30px;}
+    </style>
+</head>
+
+<body>
+    <img class="logo" title="logo搜索" src="http://wx4.sinaimg.cn/mw690/b1601727ly1flz0gqjoxmg2078078tih.gif">
+    <h1>Logo 档案馆，了解品牌 Logo 的演化</h1>
+    <section class="search" id="weibo-search">
+        <div class="middle" id="tijiao">
+            <!--<input  name="" type="text" id="weibo" value="" placeholder="海量电影、图书、软件资源任你搜！">-->
+			<input name="textfield" type="text" id="weibo" value="输入品牌名，如：Google,Apple,IBM...仅支持英文" onfocus="if (value =='输入品牌名，如：Google,Apple,IBM...仅支持英文'){value =''}" onblur="if (value ==''){value='输入品牌名，如：Google,Apple,IBM...仅支持英文'}" />
+            <input  type="submit" value="搜索" onclick="weibo()"> </input>
+		</div>
+			<div id="add">
+            
+			</div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            weibo();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+</body>
+</html>

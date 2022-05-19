@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="设计搜索,素材搜索,图标搜索,图片反向搜索">
+    <link rel="icon" href="/favicon.ico">
+    <title>设计师常用搜索</title>
+    <style type="text/css">
+    body{text-align:center;background-color:#FFFFFF;height:100%;font-family:Arial,Microsoft YaHei}
+.logo{width:239px;margin:9% auto 30px}
+input[type=submit]{float:right;display:inline-block;color:#fff;background-color:#ea4c89;border-radius:2px;height:40px;line-height:27px;font-size:16px;padding:0 24px;border:none;cursor:pointer;}
+input[type=text]{width:380px;height:36px;margin:0 -6px;padding:1px 10px;margin-bottom:30px;border:1px solid #ea4c89;font-size:16px;outline:0;text-align:center;color:#7d7d7d;}
+#wangyi-search{width:618px;margin:0 auto}
+#add{width:300px;height:250px;display:inline-block;margin-right:13px;background-size: contain;}
+.fancy-spinbox{float:left;box-sizing:content-box;height:40px;padding:0 36px 0 0;border-radius:2px;display:inline-block;position:relative;top:0;color:#FFF;background-color:#ea4c89;outline:0;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.fancy-spinbox:focus{background-color:#ce1960}
+.fancy-spinbox .crop{margin:-4px;padding:0;border:0 none;height:40px;display:inline-block;overflow:hidden}
+.fancy-spinbox ul{cursor:default;margin:0;padding:0;border:0 none;list-style:none;text-align:left}
+.fancy-spinbox li{width:auto;height:40px;line-height:40px;margin:1px;padding:0 12px 0 12px;white-space:nowrap}
+.fancy-spinbox ul.dropdown{position:absolute;top:40px;left:-9999px;z-index:999;border-radius:4px;color:#FFF;background-color:#ea4c89}
+.fancy-spinbox ul.dropdown:empty{display:none}
+.fancy-spinbox ul.dropdown li{overflow:hidden}
+.fancy-spinbox ul.dropdown li.selected,.fancy-spinbox ul.dropdown li.selected *{color:#ea4c89;background-color:#FFF}
+.fancy-spinbox ul.dropdown li:hover,.fancy-spinbox ul.dropdown li:hover *{color:#FFF;background-color:#ce1960}
+.fancy-spinbox .buttons{position:absolute;top:0;right:0;width:36px}
+.fancy-spinbox button{position:relative;width:36px;height:20px;padding:0;margin:0;border:none;border-radius:0;background-color:transparent;display:block;outline:0;cursor:default;-webkit-appearance:none;-moz-appearance:none;appearance:none}
+.fancy-spinbox button::-moz-focus-inner{border:0;outline:0}
+.fancy-spinbox button.toggle-dropdown:active>span.triangle-up,.fancy-spinbox button:active>span.triangle-up{border-bottom-color:#81C3D7}
+.fancy-spinbox button.toggle-dropdown:active>span.triangle-down,.fancy-spinbox button:active>span.triangle-down{border-top-color:#81C3D7}
+.fancy-spinbox button.toggle-dropdown{height:40px}
+.fancy-spinbox button.toggle-dropdown>span.triangle-down{position:static;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #FFF;display:inline-block;vertical-align:middle;margin:0}
+.fancy-spinbox button span{position:absolute;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;display:block}
+.fancy-spinbox button span.triangle-up{border-bottom:7px solid #FFF;bottom:2px;right:12px}
+.fancy-spinbox button span.triangle-down{border-top:7px solid #FFF;top:2px;right:12px}
+    </style>
+</head>
+
+<body>
+    <img class="logo" title="设计聚合搜索" src="images/popular.jpg">
+    <section class="search" id="wangyi-search">
+        <div class="middle" id="tijiao">
+			<select id="my-menu">
+				<option value="ui">UI 中国</option>
+				<option value="zcool">站酷</option>
+				<option value="behance">Behance</option>
+				<option value="dribbble" selected>dribbble</option>
+				<option value="pinterest">Pinterest</option>
+				<option value="huaban">花瓣</option>
+			</select>
+			<input name="textfield" type="text" id="wangyi" />
+            <input  type="submit" value="Search" onclick="wangyiyun()"> </input>
+            <script type="text/javascript">
+            function wangyiyun() {
+
+            	var s = document.getElementById('wangyi').value;
+            	var getvalue = document.getElementById('my-menu').value;
+ 
+        		if (getvalue == 'ui') {
+            		window.open("http://s.ui.cn/index.html?keywords=" + s ,"_blank");
+            	}else if (getvalue == 'zcool') {
+            		window.open("http://www.zcool.com.cn/search/content?&word=" + s ,"_self");
+            	}else if (getvalue == 'behance') {
+            		window.open("https://www.behance.net/search?content=projects&sort=comments&time=week&search=" + s ,"_blank");
+            	}else if (getvalue == 'dribbble') {
+            		window.open("https://dribbble.com/search?q=" + s ,"_blank");
+            	}else if (getvalue == 'pinterest') {
+            		window.open("https://www.pinterest.com/search/pins/?q=" + s ,"_blank");
+            	}else if (getvalue == 'huaban') {
+            		window.open("http://huaban.com/search/?q=" + s ,"_self");
+            	}
+
+            }
+            </script>
+			<div id="add">
+
+			</div>
+        </div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            wangyiyun();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+<script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+<script src="js/jquery.fancyspinbox.js"></script>
+<script>
+$('#my-menu').fancyspinbox();
+</script>
+</body>
+
+</html>

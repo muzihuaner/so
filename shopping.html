@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="淘宝搜索,亚马逊购物">
+    <link rel="icon" href="/favicon.ico">
+    <title>购物搜索</title>
+    <style type="text/css">
+body{text-align:center;background-color:#FFF;height:100%;font-family:Arial,Microsoft YaHei}
+.logo{width:239px;height:120px;margin:9% auto -11px}
+input[type=submit]{float:right;display:inline-block;color:#fff;background-color:#f04e4e;border-radius:2px;height:40px;line-height:27px;font-size:16px;padding:0 24px;border:none;cursor:pointer;letter-spacing:8px}
+input[type=text]{width:401px;height:36px;margin:0 -6px;padding:1px 10px;margin-bottom:30px;border:1px solid #f04e4e;font-size:16px;outline:0;text-align:center}
+#wangyi-search{width:618px;margin:0 auto}
+#ad{width:300px;height:250px;display:inline-block;margin-right:13px;background-size: contain;}
+.fancy-spinbox{float:left;box-sizing:content-box;height:40px;padding:0 36px 0 0;border-radius:2px;display:inline-block;position:relative;top:0;color:#FFF;background-color:#f04e4e;outline:0;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.fancy-spinbox:focus{background-color:#7c1f1f}
+.fancy-spinbox .crop{margin:-4px;padding:0;border:0 none;height:40px;display:inline-block;overflow:hidden}
+.fancy-spinbox ul{cursor:default;margin:0;padding:0;border:0 none;list-style:none;text-align:left}
+.fancy-spinbox li{width:auto;height:40px;line-height:40px;margin:1px;padding:0 12px 0 12px;white-space:nowrap}
+.fancy-spinbox ul.dropdown{position:absolute;top:40px;left:-9999px;z-index:999;border-radius:4px;color:#FFF;background-color:#f04e4e}
+.fancy-spinbox ul.dropdown:empty{display:none}
+.fancy-spinbox ul.dropdown li{overflow:hidden}
+.fancy-spinbox ul.dropdown li.selected,.fancy-spinbox ul.dropdown li.selected *{color:#f04e4e;background-color:#FFF}
+.fancy-spinbox ul.dropdown li:hover,.fancy-spinbox ul.dropdown li:hover *{color:#FFF;background-color:#7c1f1f}
+.fancy-spinbox .buttons{position:absolute;top:0;right:0;width:36px}
+.fancy-spinbox button{position:relative;width:36px;height:20px;padding:0;margin:0;border:none;border-radius:0;background-color:transparent;display:block;outline:0;cursor:default;-webkit-appearance:none;-moz-appearance:none;appearance:none}
+.fancy-spinbox button::-moz-focus-inner{border:0;outline:0}
+.fancy-spinbox button.toggle-dropdown:active>span.triangle-up,.fancy-spinbox button:active>span.triangle-up{border-bottom-color:#81C3D7}
+.fancy-spinbox button.toggle-dropdown:active>span.triangle-down,.fancy-spinbox button:active>span.triangle-down{border-top-color:#81C3D7}
+.fancy-spinbox button.toggle-dropdown{height:40px}
+.fancy-spinbox button.toggle-dropdown>span.triangle-down{position:static;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #FFF;display:inline-block;vertical-align:middle;margin:0}
+.fancy-spinbox button span{position:absolute;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;display:block}
+.fancy-spinbox button span.triangle-up{border-bottom:7px solid #FFF;bottom:2px;right:12px}
+.fancy-spinbox button span.triangle-down{border-top:7px solid #FFF;top:2px;right:12px}
+iframe{position:relative;top:-10px;left:-10px}
+#tijiao img{width:300px;height:250px}
+    </style>
+</head>
+
+<body>
+    <img class="logo" title="购物聚合搜索" src="images/shopping_logo.png">
+    <section class="search" id="wangyi-search">
+        <div class="middle" id="tijiao">
+			<select id="my-menu">
+				<option value="amazon">亚马逊</option>
+				<option value="jd">京东</option>
+				<option value="taobao">淘宝</option>
+				<option value="tmall" selected>天猫</option>
+				<option value="suning">苏宁</option>
+				<option value="dang">当当网</option>
+			</select>
+            <input  name="" type="text" id="wangyi" value="" >
+            <input  type="submit" value="搜索" onclick="wangyiyun()"> </input>
+            <script type="text/javascript">
+            function wangyiyun() {
+
+            	var s = document.getElementById('wangyi').value;
+            	var getvalue = document.getElementById('my-menu').value;
+ 
+        		if (getvalue == 'amazon') {
+            		window.open("https://www.amazon.cn/s/ref=nb_sb_noss_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Daps&field-keywords=" + s ,"_blank");
+            	}else if (getvalue == 'jd') {
+            		window.open("https://search.jd.com/Search?keyword=" + s ,"_self");
+            	}else if (getvalue == 'taobao') {
+            		window.open("https://s.taobao.com/search?q=" + s ,"_self");
+            	}else if (getvalue == 'tmall') {
+            		window.open("https://list.tmall.com/search_product.htm?q=" + s ,"_self");
+            	}else if (getvalue == 'suning') {
+            		window.open("http://search.suning.com/" + s + "/" ,"_self");
+            	}else if (getvalue == 'dang') {
+            		window.open("http://search.dangdang.com/?key=" + s ,"_self");
+            	}
+
+            }
+            </script>
+			<div id="ad">
+
+			</div>
+        </div>
+    </section>
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            wangyiyun();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+<script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+<script src="js/jquery.fancyspinbox.js"></script>
+<script>
+$('#my-menu').fancyspinbox();
+</script>
+</body>
+
+</html>
