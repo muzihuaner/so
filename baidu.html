@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="百度中文搜索,百度繁体中文搜索,百度简体中文搜索">
+    <link rel="icon" href="http://search.chongbuluo.com/favicon.ico">
+    <title>百度一下</title>
+    <style type="text/css">
+body{text-align:center;background-color:#FFF;height:100%;font-family:Arial,Microsoft YaHei}
+.logo{width:300px;margin:10% auto 0;}
+input[type=submit]{float:right;display:inline-block;color:#fff;background-color:#4e6ef2;border-radius:0 10px 10px 0;height:40px;line-height:27px;font-size:16px;padding:0 24px;border:none;cursor:pointer;}
+input[type=text]{width:401px;height:34px;margin:0 -6px;padding:1px 10px;margin-bottom:30px;border:2px solid #c4c7ce;border-right: 0;font-size:16px;outline:0;text-align:center}
+#wechat-search{width:680px;margin:0 auto}
+.fancy-spinbox{float:left;box-sizing:content-box;height:40px;padding:0 36px 0 0;border-radius:8px 0 0 8px;display:inline-block;position:relative;top:0;color:#FFF;background-color:#c4c7cd;outline:0;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.fancy-spinbox:focus{background-color:#4e6ef2}
+.fancy-spinbox .crop{padding:0;border:0 none;height:40px;display:inline-block;overflow:hidden}
+.fancy-spinbox ul{cursor:default;margin:0;padding:0;border:0 none;list-style:none;text-align:left}
+.fancy-spinbox li{width:auto;height:40px;line-height:40px;padding:0 10px;;white-space:nowrap}
+.fancy-spinbox ul.dropdown{position:absolute;top:40px;left:-9999px;z-index:999;border-radius:0 0 2px 2px;color:#FFF;background-color:#c4c7cd}
+.fancy-spinbox ul.dropdown:empty{display:none}
+.fancy-spinbox ul.dropdown li{overflow:hidden}
+.fancy-spinbox ul.dropdown li.selected,.fancy-spinbox ul.dropdown li.selected *{color:#4e6ef2;background-color:#FFF}
+.fancy-spinbox ul.dropdown li:hover,.fancy-spinbox ul.dropdown li:hover *{color:#FFF;background-color:#4e6ef2}
+.fancy-spinbox .buttons{position:absolute;top:0;right:0;width:36px}
+.fancy-spinbox button{position:relative;width:36px;height:20px;padding:0;margin:0;border:none;border-radius:0;background-color:transparent;display:block;outline:0;cursor:default;-webkit-appearance:none;-moz-appearance:none;appearance:none}
+.fancy-spinbox button::-moz-focus-inner{border:0;outline:0}
+.fancy-spinbox button.toggle-dropdown:active>span.triangle-up,.fancy-spinbox button:active>span.triangle-up{border-bottom-color:#81C3D7}
+.fancy-spinbox button.toggle-dropdown:active>span.triangle-down,.fancy-spinbox button:active>span.triangle-down{border-top-color:#81C3D7}
+.fancy-spinbox button.toggle-dropdown{height:40px}
+.fancy-spinbox button.toggle-dropdown>span.triangle-down{position:static;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #FFF;display:inline-block;vertical-align:middle;margin:0}
+.fancy-spinbox button span{position:absolute;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;display:block}
+.fancy-spinbox button span.triangle-up{border-bottom:7px solid #FFF;bottom:2px;right:12px}
+.fancy-spinbox button span.triangle-down{border-top:7px solid #FFF;top:2px;right:12px}
+iframe{position:relative;top:-10px;left:-10px}
+#tijiao img{width:300px;height:250px}
+.wwads {display: inline-block;margin: auto;}
+    </style>
+<!--    <script type="text/javascript" src="./baidu_files/makemoney.js.下载" async=""></script>-->
+</head>
+
+<body>
+    <img class="logo" title="百度搜索" src="./baidu_files/e0qtqaa0gbupjmmqka4zfrbiubwlou33.gif">
+    <section class="search" id="wechat-search">
+        <div class="middle" id="tijiao">
+			<select id="my-menu" style="display: none;">
+				<option value="simple">所有中文网页</option>
+				<option value="traditional">繁体中文网頁</option>
+			</select><div id="my-menu-fancy" tabindex="0" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-owns="fancy-spinbox-0-list" aria-activedescendant="fancy-spinbox-0-option-0" class="fancy-spinbox fancy-spinbox-0" aria-haspopup="true"><div class="crop"><ul role="listbox" aria-hidden="true" id="fancy-spinbox-0-list" style="margin-top: 0px; transition: margin-top 300ms ease 0s;"><li class="selected" role="option" id="fancy-spinbox-0-option-0">所有中文网页</li><li role="option" id="fancy-spinbox-0-option-1" class="">繁体中文网頁</li></ul></div><ul class="dropdown" aria-hidden="true"><li class="selected">所有中文网页</li><li class="">繁体中文网頁</li></ul><div class="buttons"><button class="spin-up" tabindex="-1"><span class="triangle-up"></span></button><button class="spin-down" tabindex="-1"><span class="triangle-down"></span></button></div></div>
+            <input name="" type="text" id="wechat1" value="" autocomplete="off" autofocus="">
+            <input type="submit" value="百度一下" onclick="wangyiyun()"> 
+            <script type="text/javascript">
+            function wangyiyun() {
+
+            	var s = document.getElementById('wechat1').value;
+            	var getvalue = document.getElementById('my-menu').value;
+ 
+        		if (getvalue == 'simple') {
+            		window.open("https://www.baidu.com/s?wd=" + s ,"_blank");
+            	}else if (getvalue == 'traditional') {
+                    window.open("https://www.baidu.com/s?tn=baidubig5&wd=" + s + "&ct=2" ,"_blank");
+                }
+
+            }
+            </script>
+        </div>
+    </section>
+<!--    <div class="wwads"><div class="wwads-cn wwads-horizontal" data-id="113" style="max-width:350px" id="wwads-cn-113"><style type="text/css">.wwads-horizontal,.wwads-vertical{background-color:#f4f8fa;padding:5px;min-height:120px;margin-top:20px;box-sizing:border-box;border-radius:3px;font-family:sans-serif;display:flex;min-width:150px;position:relative;overflow:hidden}.wwads-horizontal{flex-wrap:wrap;justify-content:center}.wwads-vertical{flex-direction:column;align-items:center;padding-bottom:32px}.wwads-horizontal a,.wwads-vertical a{text-decoration:none}.wwads-horizontal .wwads-img,.wwads-vertical .wwads-img{margin:5px}.wwads-horizontal .wwads-content,.wwads-vertical .wwads-content{margin:5px}.wwads-horizontal .wwads-content{flex:130px;text-align:left}.wwads-vertical .wwads-content{margin-top:10px;text-align:left}.wwads-content .wwads-text,.wwads-horizontal .wwads-text{font-size:14px;line-height:1.4;color:#0e1011;-webkit-font-smoothing:antialiased;word-break:break-word}.wwads-horizontal .wwads-poweredby,.wwads-vertical .wwads-poweredby{display:block;font-size:11px;color:#a6b7bf;margin-top:1em}.wwads-vertical .wwads-poweredby{position:absolute;left:10px;bottom:10px}.wwads-horizontal .wwads-poweredby span,.wwads-vertical .wwads-poweredby span{transition:all .2s ease-in-out;margin-left:-1em}.wwads-horizontal .wwads-poweredby span:first-child,.wwads-vertical .wwads-poweredby span:first-child{opacity:0}.wwads-horizontal .wwads-poweredby:hover span,.wwads-vertical .wwads-poweredby:hover span{opacity:1;margin-left:0}.wwads-horizontal .wwads-hide,.wwads-vertical .wwads-hide{position:absolute;right:-23px;bottom:-23px;width:46px;height:46px;border-radius:23px;transition:all .3s ease-in-out;cursor:pointer}.wwads-horizontal .wwads-hide:hover,.wwads-vertical .wwads-hide:hover{background:rgb(0 0 0 /.05)}.wwads-horizontal .wwads-hide svg,.wwads-vertical .wwads-hide svg{position:absolute;left:10px;top:10px;fill:#a6b7bf}.wwads-horizontal .wwads-hide:hover svg,.wwads-vertical .wwads-hide:hover svg{fill:#3e4546}</style><a href="https://wwads.cn/click/bait" target="_blank" rel="sponsored noopener" referrerpolicy="no-referrer-when-downgrade" style="display:none !important;"></a><a href="https://wwads.cn/click/bundle?code=wtSSj1lFmmEBxtfrsRjggye6Kbv2wm" class="wwads-img" target="_blank" rel="sponsored noopener" referrerpolicy="no-referrer-when-downgrade"><img src="./baidu_files/neNTH11aKNU3Iw3mXFeWBCNv00Hld7k5AQG3Yy6K.png" width="130" alt="万维广告联盟"></a><div class="wwads-content"><a href="https://wwads.cn/click/bundle?code=wtSSj1lFmmEBxtfrsRjggye6Kbv2wm" class="wwads-text" target="_blank" rel="sponsored noopener" referrerpolicy="no-referrer-when-downgrade">10周年钜惠！<b>企业级</b> 云服务器,毫秒延迟,全球节点,<b>助力企业出海</b>！2核4G 154元/年起</a><a href="https://wwads.cn/?utm_source=property-136&amp;utm_medium=footer" class="wwads-poweredby" title="点击了解万维广告联盟" target="_blank"><span>万维</span><span>广告</span></a></div><a class="wwads-hide" onclick="parentNode.remove()" title="隐藏广告"><svg xmlns="http://www.w3.org/2000/svg" width="6" height="7"><path d="M.879.672L3 2.793 5.121.672a.5.5 0 11.707.707L3.708 3.5l2.12 2.121a.5.5 0 11-.707.707l-2.12-2.12-2.122 2.12a.5.5 0 11-.707-.707l2.121-2.12L.172 1.378A.5.5 0 01.879.672z"></path></svg></a></div></div>-->
+
+<script type="text/javascript">   
+    // document.onkeydown=keyDownSearch; 
+    document.getElementById('tijiao').onkeydown=keyDownSearch; 
+    
+    function keyDownSearch(e) {  
+        // 兼容FF和IE和Opera  
+        var theEvent = e || window.event;  
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+        if (code == 13) {   
+            wangyiyun();
+            return false;  
+        }  
+        return true;  
+    } 
+</script>
+<script src="./baidu_files/jquery-3.1.0.min.js"></script>
+<script src="./baidu_files/jquery.fancyspinbox.js"></script>
+<script>
+$('#my-menu').fancyspinbox();
+</script>
+
+
+
+</body></html>
